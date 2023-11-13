@@ -1,29 +1,35 @@
-interface ProductInfo {
+import { Dispatch, SetStateAction } from "react";
+
+export interface ProductInfo {
   title: string;
   description: string;
   price: number;
 }
 
-interface Product extends ProductInfo {
+export interface Product extends ProductInfo {
   id: number;
 }
 
-interface CartProduct extends Product {
+export interface CartProduct extends Product {
   cartId: number;
   quantity: number;
 }
 
-interface sortOptions {
+export interface sortOptions {
   sortByPrice: boolean;
-  query: string
+  query: string;
 }
 
-interface Comment {
-  body: string,
+export interface Comment {
+  body: string;
   user: {
-    id: number,
-    username: string
-  }
+    id: number;
+    username: string;
+  };
 }
 
-export {Product, CartProduct, ProductInfo, sortOptions, Comment};
+export interface AuthContextTypes {
+  isAuth: boolean;
+  setIsAuth: Dispatch<SetStateAction<boolean>>;
+  isLoading: boolean;
+}
